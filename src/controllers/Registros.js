@@ -28,3 +28,13 @@ export async function criaRegistros(req, res) {
       res.status(500).send("Erro no servidor");
     }
 }
+
+export async function sair(req, res){
+    try {
+        const logado = res.locals.sessao;
+        if (logado) await db.collection("sessoes").deleteOne({ idUsuario: logado._id });
+        res.sendStatus(204);
+    } catch (error) {
+      res.status(500).send("Erro no servidor");
+    }
+}

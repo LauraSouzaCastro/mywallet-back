@@ -1,4 +1,4 @@
-import { listaRegistros, criaRegistros } from "../controllers/Registros.js";
+import { listaRegistros, criaRegistros, sair } from "../controllers/Registros.js";
 import { Router } from 'express';
 import { autenticacaoValida } from "../middlewares/AutenticacaoMiddleware.js";
 import { validateSchema } from "../middlewares/validateSchema.js";
@@ -9,4 +9,5 @@ registrosRouter.use(autenticacaoValida);
 registrosRouter.get("/home", listaRegistros);
 registrosRouter.post("/nova-entrada", validateSchema(registroSchema), criaRegistros);
 registrosRouter.post("/nova-saida", validateSchema(registroSchema), criaRegistros);
+registrosRouter.delete("/home", sair);
 export default registrosRouter;
