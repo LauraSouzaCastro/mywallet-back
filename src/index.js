@@ -9,4 +9,4 @@ server.use(cors());
 
 server.use(autenticacaoRouter);
 server.use(registrosRouter);
-server.listen(5000, () => console.log('Servidor OK'));
+server.listen(process.env.PORT, () => console.log('Servidor OK'));
