@@ -6,9 +6,7 @@ import registrosRouter from './routes/RegistrosRoute.js';
 const server = express();
 server.use(express.json());
 
-server.use(cors({
-    origin: '*'
-}));
+server.use(cors());
 
 server.use(autenticacaoRouter);
 server.use(registrosRouter);
